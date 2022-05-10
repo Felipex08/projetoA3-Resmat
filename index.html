@@ -26,13 +26,32 @@
             <section class="principal">
                 <h2 id="Tensão normal" class="titulo-principal">Tensão normal</h2>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente nulla nobis cumque aperiam suscipit nostrum voluptatem ipsam repudiandae nam qui, sint voluptates! Dolore perspiciatis, sequi incidunt maxime est rerum consequatur.</p>
+                
                 <br>
                 <input id="forca" type="text">Indique o valor da Força (N):</input>
-                <br>
-                <br>
+                <br><br>
+                <p>Indique a área da seção transversal da peça ou indique o diâmetro dela:</p>
                 <input id="diametro" type="text">Indique o valor do diâmetro (m):</input>
+                <br><br>
+                <input id="area" type="text">Indique o valor da área da seção transversal (m2):</input>
                 <br>
                 <button id="btnCalcula" onclick="CalculaTensaoNormal();">CALCULAR</button>
+                <br><br>
+
+                <br>
+                <input id="comprimentoInicial" type="text">Indique o valor do comprimento inicial da peça (m):</input>
+                <br><br>
+                <input id="variacaoComprimento" type="text">Indique o valor da variação do comprimento da peça (m):</input>
+                <br>
+                <button id="btnCalcula" onclick="CalculaDeformacao();">CALCULAR</button>
+                <br><br>
+
+                <br>
+                <input id="tensaoLimite" type="text">Indique o valor da tensão limite (MPa):</input>
+                <br><br>
+                <input id="coeficienteSeguranca" type="text">Indique o valor do coeficiente de segurança:</input>
+                <br>
+                <button id="btnCalcula" onclick="CalculaTensaoAdmissivel();">CALCULAR</button>
                 <br><br>
             </section>
             <button class="botao-confirmar"><a href="">confirmar</a></button>
