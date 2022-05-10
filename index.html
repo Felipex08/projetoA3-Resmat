@@ -6,6 +6,7 @@
         <title>Software de Resistência dos Materiais</title>
         <link rel="stylesheet" href="assets/CSS/style.css">
         <link rel="stylesheet" href="assets/CSS/reset.css">
+        <script src="scripts/script.js"></script>
     </head>
 
     <body>
@@ -25,6 +26,14 @@
             <section class="principal">
                 <h2 id="Tensão normal" class="titulo-principal">Tensão normal</h2>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente nulla nobis cumque aperiam suscipit nostrum voluptatem ipsam repudiandae nam qui, sint voluptates! Dolore perspiciatis, sequi incidunt maxime est rerum consequatur.</p>
+                <br>
+                <input id="forca" type="text">Indique o valor da Força (N):</input>
+                <br>
+                <br>
+                <input id="diametro" type="text">Indique o valor do diâmetro (m):</input>
+                <br>
+                <button id="btnCalcula" onclick="CalculaTensaoNormal();">CALCULAR</button>
+                <br><br>
             </section>
             <button class="botao-confirmar"><a href="">confirmar</a></button>
 
@@ -62,7 +71,7 @@
         </main>
 
         <footer>
-            <script src="scripts/script.js"></script>
+            
         </footer>
     </body>
 </html>
