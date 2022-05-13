@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Projeto Gigabyte</title>
         <link rel="stylesheet" href="assets/CSS/style.css">
-        <link rel="stylesheet" href="assets/CSS/reset.css">
         <script src="scripts/script.js"></script>
     </head>
 
@@ -17,19 +16,20 @@
         <main>
             <section class="principal">
                 <h2 id="Tensão normal" class="titulo-principal">Tensão Normal</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente nulla nobis cumque aperiam suscipit nostrum voluptatem ipsam repudiandae nam qui, sint voluptates! Dolore perspiciatis, sequi incidunt maxime est rerum consequatur.</p>
-                
-                <br>
                 <div>
                     Indique o valor da Força (N):
                     <input id="forca" type="text"></input>
                 </div>
-                <br>
                 <p>Indique a área da seção transversal da peça ou indique o diâmetro dela:</p>
-                <input id="diametro" type="text">Indique o valor do diâmetro (m):</input>
-                <br><br>
-                <input id="area" type="text">Indique o valor da área da seção transversal (m2):</input>
+                <div class="diametro">
+                    Indique o valor do diâmetro (m):
+                    <input id="diametro" type="text"></input>
+                </div>
                 <br>
+                <div class="transversal">
+                    Indique o valor da área da seção transversal (m2):
+                </div>
+                <input id="area" type="text"></input>
                 <button id="btnCalcula" onclick="CalculaTensaoNormal();">CALCULAR</button>
                 <br><br>
                 <div id="respostaTensao"></div>
@@ -54,25 +54,21 @@
                 <div id="respostaTensaoAdmissivel"></div>
                 <br>
             </section>
-            <button class="botao-confirmar"><a href="">confirmar</a></button>
 
             <section class="seção 2">
                 <h2 id="Tensão de Cisalhamento" class="titulo-principal">Tensão de Cisalhamento</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda deserunt, est optio esse voluptatibus, laboriosam quia asperiores corporis exercitationem ut inventore aut nulla, quo fuga. Nihil aliquid repellat enim est.</p>
-                <button class="botao-confirmar"><a href="">confirmar</a></button>
             </section>
 
             <section class="seção 3">
                 <h2 id="Tensão de Flexão" class="titulo-principal">Tensão máxima de Flexão</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda deserunt, est optio esse voluptatibus, laboriosam quia asperiores corporis exercitationem ut inventore aut nulla, quo fuga. Nihil aliquid repellat enim est.</p>
-                <button class="botao-confirmar"><a href="">confirmar</a></button>
             </section>
 
             <section class="seção 4">
                 <h2 id="momento-fletor" class="titulo-principal">Momento Fletor</h2>
                 <div class="div-pagamento1">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem alias nulla iusto, ipsam facilis voluptas eius repudiandae maxime optio! Ratione temporibus eius necessitatibus officiis ea maiores distinctio ut quasi voluptas.</p>
-                    <button class="botao-confirmar"><a href="">confirmar</a></button>
                 </div>
                 
             </section>
@@ -81,9 +77,6 @@
                 <h2 id="momento-torsor" class="titulo-principal">Momento Torsor</h2>
                 <div class="rodape">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis molestiae, distinctio provident, rem amet, libero laborum obcaecati dignissimos asperiores ipsam vel. Incidunt, sint eos omnis odit beatae mollitia porro nostrum.</p>
-                    <div class="div-botao">
-                    <button class="botao-confirmar"><a href="">confirmar</a></button>
-                </div>
                 </div>
                 
             </section>
