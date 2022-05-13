@@ -22,7 +22,7 @@ function CalculaTensaoNormal() {
         tensao = forcaValor / area;
     }
 
-    document.writeln(tensao);
+    document.querySelector("#respostaTensao").innerHTML = "O valor da Tensão é: " + tensao.toFixed(2) + " MPa.";
 }
 
 function CalculaDeformacao() {
@@ -34,7 +34,7 @@ function CalculaDeformacao() {
 
     var deformacao = variacaoComprimentoValor / comprimentoInicialValor;
 
-    document.writeln(deformacao);
+    document.querySelector("#respostaDeformacao").innerHTML = "O valor da Deformação é: " + deformacao.toFixed(2) + " m.";
 }
 
 function CalculaTensaoAdmissivel() {
@@ -46,7 +46,7 @@ function CalculaTensaoAdmissivel() {
 
     var tensaoAdmissivel = tensaoLimiteValor / coeficienteSegurancaValor;
 
-    document.writeln(tensaoAdmissivel);
+    document.querySelector("#respostaTensaoAdmissivel").innerHTML = "O valor da Tensão Admissível é: " + tensaoAdmissivel.toFixed(2) + " MPa.";
 }
 
 //var btn = document.getElementById("btnCalcula");
