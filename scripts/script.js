@@ -3,14 +3,17 @@ function CalculaTensaoNormal() {
     var diametro = document.querySelector("#diametro");
     var areaUsuario = document.querySelector("#area");
 
-    console.log(areaUsuario);
-
-    var forcaValor = forca.value;
-    var diametroValor = diametro.value;
-    var areaUsuarioValor = areaUsuario.value;
+    var forcaValue = forca.value;
+    var diametroValue = diametro.value;
+    var areaUsuarioValue = areaUsuario.value;
     var tensao = 0;
 
-    console.log(areaUsuarioValor);
+    var forcaValor = ConverteVirgulaEmPonto(forcaValue);
+    var diametroValor = ConverteVirgulaEmPonto(diametroValue);
+    var areaUsuarioValor = ConverteVirgulaEmPonto(areaUsuarioValue);
+    //console.log(forcaValor);
+    //console.log(diametroValor);
+    //console.log(areaUsuarioValor);
 
     if(areaUsuarioValor > 0) {
         tensao = forcaValor / areaUsuarioValor;
@@ -22,7 +25,9 @@ function CalculaTensaoNormal() {
         tensao = forcaValor / area;
     }
 
-    document.querySelector("#respostaTensao").innerHTML = "O valor da Tensão é: " + tensao.toFixed(2) + " MPa.";
+    var respostaTensao = tensao.toFixed(2).replace(".", ",");
+
+    document.querySelector("#respostaTensao").innerHTML = "O valor da Tensão é: " + respostaTensao + " MPa.";
 }
 
 function CalculaDeformacao() {
@@ -47,6 +52,11 @@ function CalculaTensaoAdmissivel() {
     var tensaoAdmissivel = tensaoLimiteValor / coeficienteSegurancaValor;
 
     document.querySelector("#respostaTensaoAdmissivel").innerHTML = "O valor da Tensão Admissível é: " + tensaoAdmissivel.toFixed(2) + " MPa.";
+}
+
+function ConverteVirgulaEmPonto(valor) {
+    valor = valor.replace(",", ".");
+    return valor;
 }
 
 //var btn = document.getElementById("btnCalcula");
