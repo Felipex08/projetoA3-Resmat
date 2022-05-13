@@ -34,3 +34,27 @@ header > h1{
     margin-bottom: 20px;
     text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.267);
 }
+
+.principal{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.principal > p{
+    margin-top: 8px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.principal > h2{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.diametro{
+    margin-top: 7px;
+}
+
+.transversal{
+    margin-bottom: 5px;
+}
