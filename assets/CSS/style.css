@@ -56,5 +56,34 @@ header > h1{
 }
 
 .transversal{
+    margin-top: -8px;
     margin-bottom: 5px;
+}
+
+#respostaTensao{
+    margin-top: 8px;
+}
+
+#comprimentoInicial{
+    margin-top: -5px;
+    margin-bottom: 5px;
+}
+
+#variacaoComprimento{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#tensaoLimite{
+    margin-top: 5px;
+}
+
+.coefSeg{
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+#respostaTensaoAdmissivel{
+    margin-bottom: 7px;
+    margin-top: 7px;
 }
