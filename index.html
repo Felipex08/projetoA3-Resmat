@@ -26,28 +26,34 @@
                 </div>
                 <input id="area" type="text"></input>
                 <button id="btnCalcula" onclick="CalculaTensaoNormal();">CALCULAR</button>
-                <br><br>
+                <br>
                 <div id="respostaTensao"></div>
                 <br>
-
-                <input id="comprimentoInicial" type="text">Indique o valor do comprimento inicial da peça (m):</input>
-                <br><br>
-                <input id="variacaoComprimento" type="text">Indique o valor da variação do comprimento da peça (m):</input>
+                <div id="comprimentoInicial">
+                    Indique o valor do comprimento inicial da peça (m):
+                </div>
+                <input id="comprimentoInicial" type="text"></input>
                 <br>
+                <div id="variacaoComprimento">
+                    Indique o valor da variação do comprimento da peça (m): 
+                </div>
+                <input id="variacaoComprimento" type="text"></input>
                 <button id="btnCalcula" onclick="CalculaDeformacao();">CALCULAR</button>
-                <br><br>
+                <br>
                 <div id="respostaDeformacao"></div>
                 <br>
-
+                <div class="tensaoLimite">
+                    Indique o valor da tensão limite (MPa):
+                </div>
+                <input id="tensaoLimite" type="text"></input>
                 <br>
-                <input id="tensaoLimite" type="text">Indique o valor da tensão limite (MPa):</input>
-                <br><br>
-                <input id="coeficienteSeguranca" type="text">Indique o valor do coeficiente de segurança:</input>
-                <br>
+                <div class="coefSeg">
+                    Indique o valor do coeficiente de segurança:
+                </div>
+                <input id="coeficienteSeguranca" type="text"></input>
                 <button id="btnCalcula" onclick="CalculaTensaoAdmissivel();">CALCULAR</button>
-                <br><br>
-                <div id="respostaTensaoAdmissivel"></div>
                 <br>
+                <div id="respostaTensaoAdmissivel"></div>
             </section>
 
             <section class="seção 2">
