@@ -36,6 +36,12 @@ function CalculaDeformacao() {
     var comprimentoInicialValue = comprimentoInicial.value;
     var variacaoComprimentoValue = variacaoComprimento.value;
 
+    console.log(comprimentoInicial);
+    console.log(variacaoComprimento);
+
+    console.log(comprimentoInicialValue);
+    console.log(variacaoComprimentoValue);
+
     var comprimentoInicialValor = ConverteVirgulaEmPonto(comprimentoInicialValue);
     var variacaoComprimentoValor = ConverteVirgulaEmPonto(variacaoComprimentoValue);
 

@@ -16,32 +16,35 @@
         <main>
             <section class="principal">
                 <h2 id="Tensão normal" class="titulo-principal">Tensão Normal</h2>
-                <div>
+
+                <div class="transversal">
                     Indique o valor da Força (N):
-                    <input id="forca" type="text"></input>
                 </div>
+                <input id="forca" class="transversal" type="text"></input>
                 <br>
                 <div class="transversal">
                     Indique o valor da área da seção transversal (m2):
                 </div>
-                <input id="area" type="text"></input>
+                <input class="transversal" id="area" type="text"></input>
                 <button id="btnCalcula" onclick="CalculaTensaoNormal();">CALCULAR</button>
                 <br>
                 <div id="respostaTensao"></div>
                 <br>
-                <div id="comprimentoInicial">
+
+                <div class="comprimentoInicial">
                     Indique o valor do comprimento inicial da peça (m):
                 </div>
-                <input id="comprimentoInicial" type="text"></input>
+                <input class="comprimentoInicial" id="comprimentoInicial" type="text"></input>
                 <br>
-                <div id="variacaoComprimento">
-                    Indique o valor da variação do comprimento da peça (m): 
+                <div class="variacaoComprimento">
+                    Indique o valor da variação do comprimento da peça (m):
                 </div>
-                <input id="variacaoComprimento" type="text"></input>
+                <input class="variacaoComprimento" id="variacaoComprimento" type="text"></input>
                 <button id="btnCalcula" onclick="CalculaDeformacao();">CALCULAR</button>
                 <br>
                 <div id="respostaDeformacao"></div>
                 <br>
+
                 <div class="tensaoLimite">
                     Indique o valor da tensão limite (MPa):
                 </div>
@@ -54,6 +57,7 @@
                 <button id="btnCalcula" onclick="CalculaTensaoAdmissivel();">CALCULAR</button>
                 <br>
                 <div id="respostaTensaoAdmissivel"></div>
+                <br>
             </section>
 
             <section class="seção 2">
