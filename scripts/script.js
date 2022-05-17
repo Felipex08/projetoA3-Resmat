@@ -1,18 +1,18 @@
 function CalculaTensaoNormal() {
     var forca = document.querySelector("#forca");
-    var diametro = document.querySelector("#diametro");
+    //var diametro = document.querySelector("#diametro");
     var areaUsuario = document.querySelector("#area");
 
     var forcaValue = forca.value;
-    var diametroValue = diametro.value;
+    //var diametroValue = diametro.value;
     var areaUsuarioValue = areaUsuario.value;
-    var tensao = 0;
+    //var tensao = 0;
 
     var forcaValor = ConverteVirgulaEmPonto(forcaValue);
-    var diametroValor = ConverteVirgulaEmPonto(diametroValue);
+    //var diametroValor = ConverteVirgulaEmPonto(diametroValue);
     var areaUsuarioValor = ConverteVirgulaEmPonto(areaUsuarioValue);
 
-    if(areaUsuarioValor > 0) {
+    /*if(areaUsuarioValor > 0) {
         tensao = forcaValor / areaUsuarioValor;
 
     } else {
@@ -20,7 +20,9 @@ function CalculaTensaoNormal() {
         var area = Math.PI * (raio * raio);
 
         tensao = forcaValor / area;
-    }
+    }*/
+
+    tensao = forcaValor / areaUsuarioValor;
 
     var respostaTensao = tensao.toFixed(2).replace(".", ",");
 
