@@ -15,73 +15,140 @@
 
         <main>
             <section class="principal">
-                <h2 id="Tensão normal" class="titulo-principal">Tensão Normal</h2>
+                <h2 id="Tensao-normal" class="titulo-principal">Tensão Normal e Tensão Normal Admissível</h2>
 
                 <div class="transversal">
                     Indique o valor da Força (N):
                 </div>
-                <input id="forca" class="transversal" type="text"></input>
+                <input id="forca" class="transversal" type="text">
                 <br>
                 <div class="transversal">
-                    Indique o valor da área da seção transversal (m2):
+                    Indique o valor da área da seção transversal (m²):
                 </div>
-                <input class="transversal" id="area" type="text"></input>
+                <input class="transversal" id="area" type="text">
                 <button id="btnCalcula" onclick="CalculaTensaoNormal();">CALCULAR</button>
                 <br>
                 <div id="respostaTensao"></div>
                 <br>
 
-                <div class="comprimentoInicial">
-                    Indique o valor do comprimento inicial da peça (m):
-                </div>
-                <input class="comprimentoInicial" id="comprimentoInicial" type="text"></input>
-                <br>
-                <div class="variacaoComprimento">
-                    Indique o valor da variação do comprimento da peça (m):
-                </div>
-                <input class="variacaoComprimento" id="variacaoComprimento" type="text"></input>
-                <button id="btnCalcula" onclick="CalculaDeformacao();">CALCULAR</button>
-                <br>
-                <div id="respostaDeformacao"></div>
-                <br>
-
                 <div class="tensaoLimite">
                     Indique o valor da tensão limite (MPa):
                 </div>
-                <input id="tensaoLimite" type="text"></input>
+                <input id="tensaoLimite" type="text">
                 <br>
                 <div class="coefSeg">
                     Indique o valor do coeficiente de segurança:
                 </div>
-                <input id="coeficienteSeguranca" type="text"></input>
+                <input id="coeficienteSeguranca" type="text">
                 <button id="btnCalcula" onclick="CalculaTensaoAdmissivel();">CALCULAR</button>
                 <br>
                 <div id="respostaTensaoAdmissivel"></div>
                 <br>
+
+                <h2 id="deformacao" class="titulo-principal">Deformação</h2>
+                <div class="comprimentoInicial">
+                    Indique o valor do comprimento inicial da peça (m):
+                </div>
+                <input class="comprimentoInicial" id="comprimentoInicial" type="text">
+                <br>
+                <div class="variacaoComprimento">
+                    Indique o valor da variação do comprimento da peça (m):
+                </div>
+                <input class="variacaoComprimento" id="variacaoComprimento" type="text">
+                <button id="btnCalcula" onclick="CalculaDeformacao();">CALCULAR</button>
+                <br>
+                <div id="respostaDeformacao"></div>
+                <br>
             </section>
 
-            <section class="seção 2">
-                <h2 id="Tensão de Cisalhamento" class="titulo-principal">Tensão de Cisalhamento</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda deserunt, est optio esse voluptatibus, laboriosam quia asperiores corporis exercitationem ut inventore aut nulla, quo fuga. Nihil aliquid repellat enim est.</p>
+            <section class="secao 2">
+                <h2 id="Tensao-de-Cisalhamento" class="titulo-principal">Tensão de Cisalhamento</h2>
+                <div class="tensao-Cisalhamento">
+                    <div class="forca-cisalhante">
+                        Indique o valor da Força Cisalhante (kN):
+                        <br>
+                        <input id="forcaCisalhante" type="text">
+                    </div>
+                    <br>
+    
+                    <div class="quantidade-areas-cisalhadas">
+                        Indique o número de áreas cisalhadas:
+                        <br>
+                        <input id="quantidadeAreasCisalhadas" type="text">
+                    </div>
+                    <br>
+    
+                    <div class="area-cisalhada">
+                        Indique o valor da área cisalhada (m²):
+                        <br>
+                        <input id="areaCisalhada" type="text">
+                        <button id="btnCalcula" onclick="CalculaTensaoCisalhamento();">CALCULAR</button>
+                        <br>
+                        <div id="respostaTensaoCisalhamento"></div>
+                    </div>
+                    <br>
+                </div>
             </section>
 
-            <section class="seção 3">
-                <h2 id="Tensão de Flexão" class="titulo-principal">Tensão máxima de Flexão</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda deserunt, est optio esse voluptatibus, laboriosam quia asperiores corporis exercitationem ut inventore aut nulla, quo fuga. Nihil aliquid repellat enim est.</p>
+            <section class="secao 3">
+                <h2 id="Tensao-de-Flexao" class="titulo-principal">Tensão máxima de Flexão</h2>
+                <div class="tensao-maxima-flexao">
+                    <div class="comprimento-viga">
+                        Indique o comprimento da viga (m):
+                        <br>
+                        <input id="comprimentoViga" type="text">
+                    </div>
+                    <br>
+
+                    <div>
+                        Indique o posicionamento do primeiro apoio:
+                        <br>
+                        <input id="posicionamentoPrimeiroApoio" type="text">
+                    </div>
+                    <br>
+                    
+                    <div>
+                        Indique o posicionamento do segundo apoio:
+                        <br>
+                        <input id="posicionamentoSegundoApoio" type="text">
+                    </div>
+                    <br>
+
+                    <div>
+                        Indique a quantidade de forças pontuais:
+                        <br>
+                        <input id="quantidadeForcasPontuais" type="text">
+                    </div>
+                    <br>
+
+                    <div>
+                        Indique a quantidade de cargas distribuídas:
+                        <br>
+                        <input id="quantidadeCargasDistribuidas" type="text">
+                    </div>
+                    <br>
+
+                    <div>
+                        Indique a quantidade de momentos:
+                        <br>
+                        <input id="quantidadeMomentos" type="text">
+                    </div>
+                    <br>
+
+                    <div>
+                        <button id="btnCalcula" onclick="CalculaTensaoMaxima();">CALCULAR</button>
+                    </div>
+
+                    <br>
+                    <div class="div-lado-a-lado" id="auxiliarIntesidadeForca"></div>
+                    <div class="div-lado-a-lado" id="auxiliarLocalizacaoViga"></div>
+                </div>
             </section>
 
-            <section class="seção 4">
+            <section class="secao 4">
                 <h2 id="momento-fletor" class="titulo-principal">Momento Fletor</h2>
                 <div class="div-pagamento1">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem alias nulla iusto, ipsam facilis voluptas eius repudiandae maxime optio! Ratione temporibus eius necessitatibus officiis ea maiores distinctio ut quasi voluptas.</p>
-                </div>
-                
-            </section>
-
-            <section class="seção 5">
-                <h2 id="momento-torsor" class="titulo-principal">Momento Torsor</h2>
-                <div class="rodape">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis molestiae, distinctio provident, rem amet, libero laborum obcaecati dignissimos asperiores ipsam vel. Incidunt, sint eos omnis odit beatae mollitia porro nostrum.</p>
                 </div>
                 
             </section>

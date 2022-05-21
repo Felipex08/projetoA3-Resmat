@@ -97,3 +97,7 @@ header > h1{
     margin-bottom: 7px;
     margin-top: 7px;
 }
+
+.div-lado-a-lado{
+    display: inline-block;
+}
