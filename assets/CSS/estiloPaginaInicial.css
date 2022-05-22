@@ -20,6 +20,15 @@ body {
     font-family: var(--fonte1);
 }
 
+.estilo {
+    margin-top: -70px;
+    text-align: justify;
+    margin-left: 230px;
+    font-family: var(--fonte1);
+    font-size: 1.2em;
+    max-width: 1500px;
+}
+
 header{
     /*background-image: linear-gradient(to bottom, var(--cor0), var(--cor1));*/
     background-color: var(--cor1);
@@ -36,74 +45,32 @@ header > h1{
     text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.267);
 }
 
-.principal{
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.principal > p{
-    margin-top: 8px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-}
-
-.principal > h2{
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.diametro{
-    margin-top: 7px;
-}
-
-.transversal{
-    margin-top: 1px;
-    margin-bottom: 5px;
-}
-
-#respostaTensao{
-    margin-top: 8px;
-}
-
-.comprimentoInicial{
-    margin-top: -5px;
-    margin-bottom: 5px;
-}
-
-#comprimentoInicial{
-    margin-top: -5px;
-    margin-bottom: 5px;
-}
-
-.variacaoComprimento{
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-#variacaoComprimento{
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-#tensaoLimite{
-    margin-top: 5px;
-}
-
-.coefSeg{
-    margin-bottom: 5px;
-    margin-top: 5px;
-}
-
-#respostaTensaoAdmissivel{
-    margin-bottom: 7px;
-    margin-top: 7px;
-}
-
-.div-lado-a-lado{
-    display: inline-block;
-}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    /*background-image: linear-gradient(to right, var(--cor0), var(--cor1));*/
+    background-color: var(--cor1);
+    max-width: 25%;
+  }
+  
+  li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  /* Change the link color on hover */
+  li a:hover {
+    background-color: var(--corForte);
+    color: black;
+  }
 
 footer {
+    margin-top: 545px;
     text-align: center;
     background-color: var(--cor1);
     padding: 7.5px;
