@@ -1,28 +1,14 @@
 function CalculaTensaoNormal() {
     var forca = document.querySelector("#forca");
-    //var diametro = document.querySelector("#diametro");
     var areaUsuario = document.querySelector("#area");
 
     var forcaValue = forca.value;
-    //var diametroValue = diametro.value;
     var areaUsuarioValue = areaUsuario.value;
-    //var tensao = 0;
 
     var forcaValor = ConverteVirgulaEmPonto(forcaValue);
-    //var diametroValor = ConverteVirgulaEmPonto(diametroValue);
     var areaUsuarioValor = ConverteVirgulaEmPonto(areaUsuarioValue);
 
-    /*if(areaUsuarioValor > 0) {
-        tensao = forcaValor / areaUsuarioValor;
-
-    } else {
-        var raio = diametroValor / 2;
-        var area = Math.PI * (raio * raio);
-
-        tensao = forcaValor / area;
-    }*/
-
-    tensao = forcaValor / areaUsuarioValor;
+    tensao = forcaValor * 1000 / areaUsuarioValor;
 
     var respostaTensao = tensao.toFixed(2).replace(".", ",");
 
@@ -85,7 +71,7 @@ function CalculaTensaoCisalhamento() {
     var quantidadeAreasCisalhadasValor = ConverteVirgulaEmPonto(quantidadeAreasCisalhadasValue);
     var areaCisalhadaValor = ConverteVirgulaEmPonto(areaCisalhadaValue);
 
-    var tensaoCisalhamento = (forcaCisalhanteValor / ( quantidadeAreasCisalhadasValor * areaCisalhadaValor )) / 1000;
+    var tensaoCisalhamento = ((forcaCisalhanteValor * 1000) / ( quantidadeAreasCisalhadasValor * areaCisalhadaValor ));
 
     var respostaTensaoCisalhamento = tensaoCisalhamento.toFixed(2).replace(".", ",");
 
@@ -175,7 +161,7 @@ async function CalculaTensaoMaxima() {
         var divAuxiliarIntesidadeForca = document.createElement("div");
         auxiliarIntesidadeForca.appendChild(divAuxiliarIntesidadeForca);
 
-        CriaElementoEmLoop("p", null, null, divAuxiliarIntesidadeForca, "Coloque o valor da Força " + i + " (kN):");
+        await CriaElementoEmLoop("p", null, null, divAuxiliarIntesidadeForca, "Coloque o valor da Força " + i + " (kN):");
 
         var intensidadeForca = await CriaElementoEmLoop("input", "intensidadeForca", "text", divAuxiliarIntesidadeForca, null);
         var intensidadeForcaValue = intensidadeForca.value;
@@ -189,7 +175,7 @@ async function CalculaTensaoMaxima() {
         var divAuxiliarLocalizacaoViga = document.createElement("div");
         auxiliarLocalizacaoViga.appendChild(divAuxiliarLocalizacaoViga);
 
-        CriaElementoEmLoop("p", null, null, divAuxiliarLocalizacaoViga, "Coloque o valor da posição da força " + i + " (m):");
+        await CriaElementoEmLoop("p", null, null, divAuxiliarLocalizacaoViga, "Coloque o valor da posição da força " + i + " (m):");
 
         var localizacaoForcaNaViga = await CriaElementoEmLoop("input", "localizacaoForcaNaViga", "text", divAuxiliarLocalizacaoViga);
         var localizacaoForcaNaVigaValue = localizacaoForcaNaViga.value;
