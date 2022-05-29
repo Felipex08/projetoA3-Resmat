@@ -12,7 +12,7 @@ function CalculaTensaoNormal() {
 
     var respostaTensao = tensao.toFixed(2).replace(".", ",");
 
-    document.querySelector("#respostaTensao").innerHTML = "O valor da Tensão é: " + respostaTensao + " MPa.";
+    document.querySelector("#respostaTensao").innerHTML = "Resultado: O valor da Tensão é: " + respostaTensao + " MPa.";
 }
 
 function CalculaDeformacao() {
@@ -29,7 +29,7 @@ function CalculaDeformacao() {
 
     var respostaDeformacao = deformacao.toFixed(2).replace(".", ",");
 
-    document.querySelector("#respostaDeformacao").innerHTML = "O valor da Deformação é: " + respostaDeformacao + " m.";
+    document.querySelector("#respostaDeformacao").innerHTML = "Resultado: O valor da Deformação é: " + respostaDeformacao + " m.";
 }
 
 function CalculaTensaoAdmissivel() {
@@ -45,8 +45,8 @@ function CalculaTensaoAdmissivel() {
     var tensaoAdmissivel = tensaoLimiteValor / coeficienteSegurancaValor;
 
     var respostaTensaoAdmissivel = tensaoAdmissivel.toFixed(2).replace(".", ",");
-
-    document.querySelector("#respostaTensaoAdmissivel").innerHTML = "O valor da Tensão Admissível é: " + respostaTensaoAdmissivel + " MPa.";
+    
+    document.querySelector("#respostaTensaoAdmissivel").innerHTML = "Resultado: O valor da Tensão Admissível é: " + respostaTensaoAdmissivel + " MPa.";
 }
 
 function ConverteVirgulaEmPonto(valor) {
@@ -75,7 +75,7 @@ function CalculaTensaoCisalhamento() {
 
     var respostaTensaoCisalhamento = tensaoCisalhamento.toFixed(2).replace(".", ",");
 
-    document.querySelector('#respostaTensaoCisalhamento').innerHTML = "O valor da Tensão de Cisalhamento é: " + respostaTensaoCisalhamento + " MPa.";
+    document.querySelector('#respostaTensaoCisalhamento').innerHTML = "Resultado: O valor da Tensão de Cisalhamento é: " + respostaTensaoCisalhamento + " MPa.";
 }
 
 async function CriaElementoEmLoop(tipoElemento, id, type, element, mensagem) {
@@ -160,6 +160,7 @@ async function CalculaTensaoMaxima() {
 
         var divAuxiliarIntesidadeForca = document.createElement("div");
         auxiliarIntesidadeForca.appendChild(divAuxiliarIntesidadeForca);
+        divAuxiliarIntesidadeForca.className="item"
 
         await CriaElementoEmLoop("p", null, null, divAuxiliarIntesidadeForca, "Coloque o valor da Força " + i + " (kN):");
 
@@ -174,6 +175,7 @@ async function CalculaTensaoMaxima() {
 
         var divAuxiliarLocalizacaoViga = document.createElement("div");
         auxiliarLocalizacaoViga.appendChild(divAuxiliarLocalizacaoViga);
+        divAuxiliarLocalizacaoViga.className="item"
 
         await CriaElementoEmLoop("p", null, null, divAuxiliarLocalizacaoViga, "Coloque o valor da posição da força " + i + " (m):");
 
