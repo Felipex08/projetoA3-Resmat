@@ -170,7 +170,7 @@ header > h1{
 .div-lado-a-lado{
     display: inline-block;
 
-    vertical-align:top; /* <---- this */
+    vertical-align: top; /* <---- this */
 }
 
 footer {
