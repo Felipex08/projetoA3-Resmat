@@ -83,3 +83,13 @@ footer > p{
     text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.267);
     font-weight: bold;
 }
+
+ul.lista2{
+    background-color: var(--cor0);
+    text-align: none;
+    width: auto;
+}
+
+ul.lista2 > li{
+    margin-top: 5px;
+}
