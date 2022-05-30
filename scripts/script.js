@@ -1,12 +1,12 @@
-function ConverteVirgulaEmPonto(valor) {
+/*function ConverteVirgulaEmPonto(valor) {
     valor = valor.replace(",", ".");
     return valor;
-}
+}*/
 
 //var btn = document.getElementById("btnCalcula");
 //btn.addEventListener("click", exibirMensagem)
 
-async function CriaElementoEmLoop(tipoElemento, id, type, element, mensagem) {
+/*async function CriaElementoEmLoop(tipoElemento, id, type, element, mensagem) {
     var elementoCriado = document.createElement(tipoElemento);
 
     if(tipoElemento == "input") {
@@ -28,6 +28,4 @@ async function CriaElementoEmLoop(tipoElemento, id, type, element, mensagem) {
     }
     
     return elementoCriado;
-}
-
-export { ConverteVirgulaEmPonto,  CriaElementoEmLoop};
+}*/

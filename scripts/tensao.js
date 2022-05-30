@@ -1,5 +1,3 @@
-import ConverteVirgulaEmPonto from './script';
-
 function CalculaTensaoNormal() {
     var forca = document.querySelector("#forca");
     var areaUsuario = document.querySelector("#area");
@@ -7,8 +5,8 @@ function CalculaTensaoNormal() {
     var forcaValue = forca.value;
     var areaUsuarioValue = areaUsuario.value;
 
-    var forcaValor = auxiliar.ConverteVirgulaEmPonto(forcaValue);
-    var areaUsuarioValor = auxiliar.ConverteVirgulaEmPonto(areaUsuarioValue);
+    var forcaValor = ConverteVirgulaEmPonto(forcaValue);
+    var areaUsuarioValor = ConverteVirgulaEmPonto(areaUsuarioValue);
 
     tensao = forcaValor * 1000 / areaUsuarioValor;
 
@@ -24,8 +22,8 @@ function CalculaTensaoAdmissivel() {
     var tensaoLimiteValue = tensaoLimite.value;
     var coeficienteSegurancaValue = coeficienteSeguranca.value;
 
-    var tensaoLimiteValor = auxiliar.ConverteVirgulaEmPonto(tensaoLimiteValue);
-    var coeficienteSegurancaValor = auxiliar.ConverteVirgulaEmPonto(coeficienteSegurancaValue);
+    var tensaoLimiteValor = ConverteVirgulaEmPonto(tensaoLimiteValue);
+    var coeficienteSegurancaValor = ConverteVirgulaEmPonto(coeficienteSegurancaValue);
 
     var tensaoAdmissivel = tensaoLimiteValor / coeficienteSegurancaValor;
 
@@ -43,9 +41,9 @@ function CalculaTensaoCisalhamento() {
     var quantidadeAreasCisalhadasValue = quantidadeAreasCisalhadas.value;
     var areaCisalhadaValue = areaCisalhada.value;
 
-    var forcaCisalhanteValor = auxiliar.ConverteVirgulaEmPonto(forcaCisalhanteValue);
-    var quantidadeAreasCisalhadasValor = auxiliar.ConverteVirgulaEmPonto(quantidadeAreasCisalhadasValue);
-    var areaCisalhadaValor = auxiliar.ConverteVirgulaEmPonto(areaCisalhadaValue);
+    var forcaCisalhanteValor = ConverteVirgulaEmPonto(forcaCisalhanteValue);
+    var quantidadeAreasCisalhadasValor = ConverteVirgulaEmPonto(quantidadeAreasCisalhadasValue);
+    var areaCisalhadaValor = ConverteVirgulaEmPonto(areaCisalhadaValue);
 
     var tensaoCisalhamento = ((forcaCisalhanteValor * 1000) / ( quantidadeAreasCisalhadasValor * areaCisalhadaValor ));
 
@@ -54,4 +52,7 @@ function CalculaTensaoCisalhamento() {
     document.querySelector('#respostaTensaoCisalhamento').innerHTML = "Resultado: O valor da Tensão de Cisalhamento é: " + respostaTensaoCisalhamento + " MPa.";
 }
 
-export {CalculaTensaoNormal, CalculaTensaoAdmissivel, CalculaTensaoCisalhamento};
+function ConverteVirgulaEmPonto(valor) {
+    valor = valor.replace(",", ".");
+    return valor;
+}
