@@ -31,29 +31,35 @@ async function CalculaTensaoMaxima() {
     //l = float(input('Comprimento da viga em mts '))
     var l = document.querySelector("#comprimentoViga");
     var lValue = l.value;
-    var lValor = ConverteVirgulaEmPonto(lValue);
+    var lvalue2 = ConverteVirgulaEmPonto(lValue);
+    var lValor = parseFloat(lvalue2);
 
     //a1 = float(input('Posicionamento do primeiro apoio '))
     var a1 = document.querySelector("#posicionamentoPrimeiroApoio");
     var a1Value = a1.value;
-    var a1Valor = ConverteVirgulaEmPonto(a1Value);
+    var a1Value2 = ConverteVirgulaEmPonto(a1Value);
+    var a1Valor = parseFloat(a1Value2);
 
     //a2 = float(input('Posicionamento do segundo apoio '))
     var a2 = document.querySelector("#posicionamentoSegundoApoio");
     var a2Value = a2.value;
-    var a2Valor = ConverteVirgulaEmPonto(a2Value);
+    var a2Value2 = ConverteVirgulaEmPonto(a2Value);
+    var a2Valor = parseFloat(a2Value2);
 
     //forcas = int(input('Insira a quantidade de forças pontuais '))
     var forcas = document.querySelector("#quantidadeForcasPontuais");
-    var forcasValor = forcas.value;
+    var forcas2 = forcas.value;
+    var forcasValor = parseInt(forcas2);
 
     //cargas = int(input('Insira a quantidade de cargas distribuidas '))
     var cargas = document.querySelector("#quantidadeCargasDistribuidas");
-    var cargasValor = cargas.value;
+    var cargas2 = cargas.value;
+    var cargasValor = parseInt(cargas2);
 
     //momentos = int(input('Insira a quntidade de momentos '))
     var momentos = document.querySelector("#quantidadeMomentos");
-    var momentosValor = momentos.value;
+    var momentos2 = momentos.value;
+    var momentosValor = parseInt(momentos2);
 
     var forcasLista = [];
     var posicaoLista = [];
@@ -92,7 +98,9 @@ async function CalculaTensaoMaxima() {
     var auxiliarPosicaoMomento = document.querySelector("#auxiliarPosicaoMomento");
     var auxiliarPerifericos = document.querySelector("#auxiliarPerifericos");
 
-    await CriaElementoEmLoop("h3", "tituloForcasPontuais", null, tituloInputForcasPontuais, "Forças Pontuais:");
+    if(forcasValor > 0) {
+        await CriaElementoEmLoop("h3", "tituloForcasPontuais", null, tituloInputForcasPontuais, "Forças Pontuais:");
+    }
 
     for (var i = 1; forcasValor > 0; i++) {
         //forcasLista.append(float(input('Insira a intensidade da força ')))
@@ -105,12 +113,11 @@ async function CalculaTensaoMaxima() {
         var intensidadeForca = await CriaElementoEmLoop("input", "intensidadeForca", "text", divAuxiliarIntesidadeForca, null);
         var intensidadeForcaValue = intensidadeForca.value;
         var intensidadeForcaValor = ConverteVirgulaEmPonto(intensidadeForcaValue);
-        forcasLista.push(intensidadeForcaValor);
+        forcasLista.push(parseFloat(intensidadeForcaValor));
 
         console.log(forcasLista);
 
         //posicaoLista.append(float(input('Localização da força na viga ')))
-
         var divAuxiliarLocalizacaoViga = document.createElement("div");
         auxiliarLocalizacaoViga.appendChild(divAuxiliarLocalizacaoViga);
         divAuxiliarLocalizacaoViga.className="item";
@@ -120,7 +127,7 @@ async function CalculaTensaoMaxima() {
         var localizacaoForcaNaViga = await CriaElementoEmLoop("input", "localizacaoForcaNaViga", "text", divAuxiliarLocalizacaoViga);
         var localizacaoForcaNaVigaValue = localizacaoForcaNaViga.value;
         var localizacaoForcaNaVigaValor = ConverteVirgulaEmPonto(localizacaoForcaNaVigaValue);
-        posicaoLista.push(localizacaoForcaNaVigaValor);
+        posicaoLista.push(parseFloat(localizacaoForcaNaVigaValor));
 
         console.log(posicaoLista);
 
@@ -143,7 +150,9 @@ async function CalculaTensaoMaxima() {
         
     //Parte de forças distribuidas
 
-    await CriaElementoEmLoop("h3", "tituloCargasDistribuidas", null, tituloInputCargasDistribuidas, "Cargas Distribuídas:");
+    if(cargasValor > 0) {
+        await CriaElementoEmLoop("h3", "tituloCargasDistribuidas", null, tituloInputCargasDistribuidas, "Cargas Distribuídas:");
+    }
 
     for (var i = 1; cargasValor > 0; i++) {
         //listaCargas.append(float(input('Insira o valor de inicio da carga ')))
@@ -156,7 +165,7 @@ async function CalculaTensaoMaxima() {
         var valorInicioCarga = await CriaElementoEmLoop("input", "inicioCarga", "text", divAuxiliarValorInicioCarga, null);
         var valorInicioCargaValue = valorInicioCarga.value;
         var valorInicioCargaValor = ConverteVirgulaEmPonto(valorInicioCargaValue);
-        listaCargas.push(valorInicioCargaValor);
+        listaCargas.push(parseFloat(valorInicioCargaValor));
 
         //listaCargas.append(float(input('Insira o valor final da carga ')))
         var divAuxiliarValorFinalCarga = document.createElement("div");
@@ -168,7 +177,7 @@ async function CalculaTensaoMaxima() {
         var valorFinalCarga = await CriaElementoEmLoop("input", "finalCarga", "text", divAuxiliarValorFinalCarga, null);
         var valorFinalCargaValue = valorFinalCarga.value;
         var valorFinalCargaValor = ConverteVirgulaEmPonto(valorFinalCargaValue);
-        listaCargas.push(valorFinalCargaValor);
+        listaCargas.push(parseFloat(valorFinalCargaValor));
 
         //listaPosicaoCargas.append(float(input('Insira a posição de inicio da carga ')))
         var divAuxiliarPosicaoInicialCarga = document.createElement("div");
@@ -180,7 +189,7 @@ async function CalculaTensaoMaxima() {
         var posicaoInicialCarga = await CriaElementoEmLoop("input", "posicaoInicialCarga", "text", divAuxiliarPosicaoInicialCarga, null);
         var posicaoInicialCargaValue = posicaoInicialCarga.value;
         var posicaoInicialCargaValor = ConverteVirgulaEmPonto(posicaoInicialCargaValue);
-        listaPosicaoCargas.push(posicaoInicialCargaValor);
+        listaPosicaoCargas.push(parseFloat(posicaoInicialCargaValor));
 
         //listaPosicaoCargas.append(float(input('Insira a posição final da carga ')))
         var divAuxiliarPosicaoFinalCarga = document.createElement("div");
@@ -192,7 +201,7 @@ async function CalculaTensaoMaxima() {
         var posicaoFinalCarga = await CriaElementoEmLoop("input", "posicaoFinalCarga", "text", divAuxiliarPosicaoFinalCarga, null);
         var posicaoFinalCargaValue = posicaoFinalCarga.value;
         var posicaoFinalCargaValor = ConverteVirgulaEmPonto(posicaoFinalCargaValue);
-        listaPosicaoCargas.push(posicaoFinalCargaValor);
+        listaPosicaoCargas.push(parseFloat(posicaoFinalCargaValor));
 
         cargasValor = cargasValor - 1;
     }
@@ -294,9 +303,11 @@ async function CalculaTensaoMaxima() {
         listaMomentos.push(m);
         qcargasResultante = qcargasResultante - 1;
     }
-        
-    await CriaElementoEmLoop("h3", "tituloMomentos", null, tituloInputMomentos, "Momentos: (obs: Sentido horário é para colocar o valor como NEGATIVO!)");
-
+    
+    if(momentosValor > 0) {
+        await CriaElementoEmLoop("h3", "tituloMomentos", null, tituloInputMomentos, "Momentos: (obs: Sentido horário é para colocar o valor como NEGATIVO!)");
+    }
+    
     for (var i = 1; momentosValor > 0; i++) {
         //m = float(input('Insira o valor do momento (horário NEGATIVO) '))
         var divAuxiliarValorMomento = document.createElement("div");
@@ -308,8 +319,8 @@ async function CalculaTensaoMaxima() {
         var valorMomento = await CriaElementoEmLoop("input", "valorMomento", "text", divAuxiliarValorMomento, null);
         var valorMomentoValue = valorMomento.value;
         var valorMomentoValor = ConverteVirgulaEmPonto(valorMomentoValue);
-        listaMomentos.push(valorMomentoValor);
-        listaEMomentos.push(valorMomentoValor);
+        listaMomentos.push(parseFloat(valorMomentoValor));
+        listaEMomentos.push(parseFloat(valorMomentoValor));
 
         //pm = float(input('Insira a posição do momento na viga '))
         var divAuxiliarPosicaoMomento = document.createElement("div");
@@ -321,8 +332,8 @@ async function CalculaTensaoMaxima() {
         var posicaoMomento = await CriaElementoEmLoop("input", "posicaoMomento", "text", divAuxiliarPosicaoMomento, null);
         var posicaoMomentoValue = posicaoMomento.value;
         var posicaoMomentoValor = ConverteVirgulaEmPonto(posicaoMomentoValue);
-        listaPosicaoMomentos.push(posicaoMomentoValor);
-        listaEPosicaoMomentos.push(posicaoMomentoValor);
+        listaPosicaoMomentos.push(parseFloat(posicaoMomentoValor));
+        listaEPosicaoMomentos.push(parseFloat(posicaoMomentoValor));
 
         momentosValor = momentosValor - 1;
     }
@@ -332,10 +343,15 @@ async function CalculaTensaoMaxima() {
     var somaMomento = listaMomentos.reduce((total, numero) => total + numero, 0);
     console.log(somaMomento);
 
+    console.log(forcasLista);
+    console.log(cargasResultante);
     var somaForcaLista = forcasLista.reduce((total, numero) => total + numero, 0);
     var somaCargasResultante = cargasResultante.reduce((total, numero) => total + numero, 0);
 
+    console.log(somaForcaLista);
+    console.log(somaCargasResultante);
     var somaForca = somaForcaLista + somaCargasResultante;
+    console.log(somaForca);
     var rby = - (somaMomento / (a2Valor - a1Valor));
     var ray = (somaForca - rby);
 
