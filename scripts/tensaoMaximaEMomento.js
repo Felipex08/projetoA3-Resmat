@@ -358,7 +358,7 @@ async function CalculaTensaoMaxima() {
     for(var i = 0; i < forcasLista.length; i++) {
         var tuplaF = [posicaoLista[i], forcasLista[i]];
         resultados.push(tuplaF);
-        console.log("Passei pela linha 361!!");
+        console.log("Passei pela linha 361!! " + tuplaF);
     }
 
     /*for i in range(int(len(listaPReacoes))):
@@ -367,7 +367,7 @@ async function CalculaTensaoMaxima() {
     for(var i = 0; i < listaPReacoes.length; i++) {
         var tuplaR = [listaPReacoes[i], listaFReacoes[i]];
         resultados.push(tuplaR);
-        console.log("Passei pela linha 370!!");
+        console.log("Passei pela linha 370!! " + tuplaR);
     }
 
     /*for i in range(int(len(cargasResultante))):
@@ -376,7 +376,7 @@ async function CalculaTensaoMaxima() {
     for(var i = 0; i < cargasResultante.length; i++) {
         var tuplaC = [posicaoCargaResultante[i], cargasResultante[i]];
         resultados.push(tuplaC);
-        console.log("Passei pela linha 379!!");
+        console.log("Passei pela linha 379!! " + tuplaC);
     }
 
     //var resultadosOrg = sorted(resultados);
