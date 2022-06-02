@@ -490,9 +490,9 @@ async function CalculaTensaoMaxima() {
         var indiceResultados = resultadosOrg.indexOf([p, c]);
         var remove = resultadosOrg.indexOf([p, c]);
         resultadosOrg.pop([remove][0]);
-        resultadosOrg.insertBefore([remove][0], (lista_final[indiceResultante], lista_final[indiceResultante + 1]));
+        resultadosOrg.splice([remove][0], (lista_final[indiceResultante], lista_final[indiceResultante + 1]));
         resultadosFinais.pop(remove);
-        resultadosFinais.insert(remove, mf);
+        resultadosFinais.splice(remove, mf);
             
         qMomentosFinal = qMomentosFinal - 1;
         indiceResultante = indiceResultados + 2;
@@ -516,7 +516,7 @@ async function CalculaTensaoMaxima() {
     while (indiceListaMomento != qMFinal && qLMomento != 0) {
         if (listaEPosicaoMomentos[indiceMomentoFinal] <= listaPosicoesFinais[indiceListaMomento]) {
             while (indiceMomentoFinal != qLMomento) {
-                var i = listaPosicoesFinais.index(listaPosicoesFinais[indiceListaMomento]);
+                var i = listaPosicoesFinais.indexOf(listaPosicoesFinais[indiceListaMomento]);
                 var momentoSomado = resultadosFinais[i] + listaEMomentos[indiceMomentoFinal];
                 resultadosFinais[i] = momentoSomado;
                 indiceMomentoFinal = indiceMomentoFinal+ 1;
@@ -531,8 +531,12 @@ async function CalculaTensaoMaxima() {
     /*for i in range(int(len(resultadosFinais))):
         tuplaFinal = (resultadosFinais[i], listaPosicoesFinais[i])
         resultadosFinaisParaUsuario.append(tuplaFinal)*/
-    for(var i = 0; i <= resultadosFinais.length; i++) {
-        var tuplaFinal = (resultadosFinais[i], listaPosicoesFinais[i]);
+
+    console.log(resultadosFinais);
+    console.log(listaPosicoesFinais);
+
+    for(var i = 0; i < resultadosFinais.length; i++) {
+        var tuplaFinal = [resultadosFinais[i], listaPosicoesFinais[i]];
         resultadosFinaisParaUsuario.push(tuplaFinal);
     }
         
@@ -542,11 +546,29 @@ async function CalculaTensaoMaxima() {
     //print(str2.format(resultadoMomentoUsuario));
 
 
+    console.log(resultadosFinaisParaUsuario);
+    //var momentoMax = Math.max(resultadosFinaisParaUsuario);
 
-    var momentoMax = max(resultadosFinaisParaUsuario);
-    var momentoMin = min(resultadosFinaisParaUsuario);
-    var mMaximo = momentoMax[0]
-    var mMinimo = momentoMin[0]
+    var momentoMax = resultadosFinaisParaUsuario.reduce(function(a, b) {
+        var aux = b.reduce(function(c, d) {
+            return Math.max(c, d);
+        }, -Infinity);
+        return Math.max(a, aux);
+      }, -Infinity);
+
+    //var momentoMin = Math.min(resultadosFinaisParaUsuario);
+
+    var momentoMin = resultadosFinaisParaUsuario.reduce(function(a, b) {
+        var aux = b.reduce(function(c, d) {
+            return Math.min(c, d);
+        }, Infinity);
+        return Math.min(a, aux);
+      }, Infinity);
+
+    console.log(momentoMax);
+    console.log(momentoMin);
+    var mMaximo = momentoMax;
+    var mMinimo = momentoMin;
     if (mMaximo < 0) {
         mMaximo = -mMaximo
     }
@@ -564,7 +586,8 @@ async function CalculaTensaoMaxima() {
 
     var y = await CriaElementoEmLoop("input", "alturaAteLinhaNeutra", "text", divAuxiliarPerifericos, null);
     var yValue = y.value;
-    var yValor = ConverteVirgulaEmPonto(yValue);
+    var yValue2 = ConverteVirgulaEmPonto(yValue);
+    var yValor = parseFloat(yValue2);
 
     //var h = float(input('Insira a altura do perfil da viga '))
     var divAuxiliarPerifericos2 = document.createElement("div");
@@ -575,7 +598,8 @@ async function CalculaTensaoMaxima() {
 
     var h = await CriaElementoEmLoop("input", "alturaPerfilViga", "text", divAuxiliarPerifericos2, null);
     var hValue = h.value;
-    var hValor = ConverteVirgulaEmPonto(hValue);
+    var hValue2 = ConverteVirgulaEmPonto(hValue);
+    var hValor = parseFloat(hValue2);
 
     //var iZ = float(input('Insira o momento de inércia da estrutura '))
     var divAuxiliarPerifericos3 = document.createElement("div");
@@ -586,7 +610,13 @@ async function CalculaTensaoMaxima() {
 
     var iZ = await CriaElementoEmLoop("input", "momentoInerciaEstrutura", "text", divAuxiliarPerifericos3, null);
     var iZValue = iZ.value;
-    var iZValor = ConverteVirgulaEmPonto(iZValue);
+    var iZValue2 = ConverteVirgulaEmPonto(iZValue);
+    var iZValor = parseFloat(iZValue2);
+
+    console.log(yValor);
+    console.log(hValor);
+    console.log(iZValor);
+    console.log(mMaximo);
 
     var tMax_10 = ((mMaximo * (hValor - yValor)) / iZValor) / 1000;
     var tMax_11 = ((mMaximo * (-yValor)) / iZValor) / 1000;
@@ -595,6 +625,13 @@ async function CalculaTensaoMaxima() {
 
     //var RespostaStr3 = 'As tensões em Mz = {0} são iguais a {1} MPa para a parte de cima do perfil e {2} MPa para a parte de baixo \nEm Mz = {3} são iguais a {4} MPa para a parte de cima do perfil e {5} MPa para a parte de baixo';
     //print(str3.format(mMaximo, tMax_10, tMax_11, mMinimo, tMax_20, tMax_21));
+
+    console.log(mMaximo);
+    console.log(tMax_10);
+    console.log(tMax_11);
+    console.log(mMinimo);
+    console.log(tMax_20);
+    console.log(tMax_21);
 
     var mMaximoResposta = mMaximo.toFixed(2).replace(".", ",");
     var tMax_10Resposta = tMax_10.toFixed(2).replace(".", ",");
