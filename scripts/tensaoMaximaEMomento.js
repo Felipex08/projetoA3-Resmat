@@ -232,8 +232,8 @@ async function CalculaTensaoMaxima() {
             var cr = (ci * (pcf - pci));
             cargasResultante.push(cr);
 
-            qcargas = qcargas - 2;
-            break;
+            //qcargas = qcargas - 2;
+            //break;
         }
             
         else if (cf == 0 || ci == 0) {
@@ -249,8 +249,8 @@ async function CalculaTensaoMaxima() {
                 cargasResultante.push(cr);
             }
 
-            qcargas = qcargas - 2;
-            break;
+            //qcargas = qcargas - 2;
+            //break;
         }
             
         else if (cf < ci && cf != 0) {
@@ -264,8 +264,8 @@ async function CalculaTensaoMaxima() {
             cr = ((pcf - pci) * (ci - cf)) / 2;
             cargasResultante.push(cr);
 
-            qcargas = qcargas - 2;
-            break;
+            //qcargas = qcargas - 2;
+            //break;
         }
             
         else {
@@ -279,9 +279,11 @@ async function CalculaTensaoMaxima() {
             cr = ((pcf - pci) * (cf - ci) / 2);
             cargasResultante.push(cr);
 
-            qcargas = qcargas - 2;
-            break;
+            //qcargas = qcargas - 2;
+            //break;
         }
+
+        qcargas = qcargas - 2;
     }
         
     //qcargasResultante = int(len(cargasResultante))
@@ -289,13 +291,21 @@ async function CalculaTensaoMaxima() {
     console.log(posicaoCargaResultante);
     console.log(cargasResultante);
 
+    console.log("Lista de qcargasResultante: " + qcargasResultante);
+
     while (qcargasResultante > 0) {
         var indiceCResultante = qcargasResultante - 1;
         var indicePResultante = indiceCResultante;
         console.log("IndicePReultante: " + indicePResultante);
         var fr = cargasResultante[indiceCResultante];
+
+        console.log("Lista de cargasResultante: " + cargasResultante);
+
         console.log("Valor de fr:" + fr);
         var pr = posicaoCargaResultante[indicePResultante];
+
+        console.log("Lista de posicaoCargaResultante: " + posicaoCargaResultante);
+
         console.log("Valor de pr: " + pr);
         var m = (fr * (a1Valor - pr));
         console.log("O valor de a1Valor: " + a1Valor);
@@ -392,15 +402,20 @@ async function CalculaTensaoMaxima() {
     for(var i = 0; i < cargasResultante.length; i++) {
         var tuplaC = [posicaoCargaResultante[i], cargasResultante[i]];
         resultados.push(tuplaC);
+        console.log(resultados);
+        //resultados.push([1, 2]);
+        //console.log(resultados);
         console.log("Passei pela linha 379!! " + tuplaC);
     }
 
     //var resultadosOrg = sorted(resultados);
     console.log(resultados);
+    console.log(resultados.length);
     var resultadosOrg = resultados.sort(function(a, b) {
         return a - b;
     });
     console.log(resultadosOrg);
+    console.log(resultadosOrg.length);
 
     var qcargas_final = cargasResultante.length;
     var indiceFCargas = 0;
@@ -418,6 +433,9 @@ async function CalculaTensaoMaxima() {
         while (pCI >= resultadosOrg[indiceLista][0]) {
             lista.push(resultadosOrg[indiceLista][1]);
             indiceLista = indiceLista + 1;
+            if(indiceLista == resultadosOrg.length - 1) {
+                break
+            }
         }
             
         //var c = sum(lista);
@@ -427,6 +445,9 @@ async function CalculaTensaoMaxima() {
             var x = -c / cI;
             var m = (cI / 2) * (x ** 2) + c * x;
             var p = x + pCI;
+            console.log("O valor de x: " + x);
+            console.log("O valor de m: " + m);
+            console.log("O valor de p: " + p);
             listaFMCargas.push(m);
             listaPMCargas.push(p);
         } else {
@@ -454,6 +475,8 @@ async function CalculaTensaoMaxima() {
     var q = resultadosOrg.length - 1;
     var indice = 0;
 
+    console.log(resultadosOrg);
+
     while (indice <= q) {
         var lista = [];
         if (indice == 0) {
@@ -463,16 +486,34 @@ async function CalculaTensaoMaxima() {
             var i = indice - 1;
             while (i >= 0) {
                 var a = resultadosOrg[i][1] * (resultadosOrg[indice][0] - resultadosOrg[i][0]);
+                console.log(a);
+                console.log(lista);
                 lista.push(a);
                 i = i - 1;
             }
         }
+
+        //9, -81, 36, 18, -40,5, 22,5
             
         //var somaLista = sum(lista);
         var somaListaAux = lista.reduce((total, numero) => total + numero, 0);
 
+        console.log(somaListaAux);
+
         resultadosFinais.push(somaListaAux);
         indice = indice + 1;
+    }
+
+    console.log(resultadosFinais);
+    console.log(resultadosOrg);
+
+    var listAuxTeste = [];
+
+    for(var i = 0; i < resultadosOrg.length; i++) {
+        for(var j = 0; j < resultadosOrg[i].length; j++) {
+            var aux = resultadosOrg[i][j];
+            listAuxTeste.push(aux);
+        }
     }
                 
     var qMomentosFinal = cargasResultante.length;
@@ -480,23 +521,42 @@ async function CalculaTensaoMaxima() {
 
     while (qMomentosFinal > 0) {
         var c = cargasResultante[indiceResultante];
+        console.log(c);
         var p = posicaoCargaResultante[indiceResultante];
+        console.log(p);
         var lista_final = [];
         var mf = listaFMCargas[indiceResultante];
         var pf = listaPMCargas[indiceResultante];
         lista_final.push(pf);
         lista_final.push(mf);
+        console.log(lista_final);
 
-        var indiceResultados = resultadosOrg.indexOf([p, c]);
-        var remove = resultadosOrg.indexOf([p, c]);
+        console.log(listAuxTeste);
+
+        var indiceResultados = listAuxTeste.indexOf(p) / 2;
+        console.log(indiceResultados);
+        //var remove = resultadosOrg.indexOf([p, c]);
+        var remove = indiceResultados;
+        console.log(remove);
         resultadosOrg.pop([remove][0]);
-        resultadosOrg.splice([remove][0], (lista_final[indiceResultante], lista_final[indiceResultante + 1]));
-        resultadosFinais.pop(remove);
-        resultadosFinais.splice(remove, mf);
+        console.log(resultadosOrg);
+        console.log(indiceResultante);
+        resultadosOrg.splice(remove, 0, [lista_final[indiceResultante], lista_final[indiceResultante + 1]]);
+        console.log(resultadosOrg);
+        console.log(resultadosFinais);
+        var removeAux = remove - 1;
+        console.log(removeAux);
+        //resultadosFinais.pop(removeAux);
+        //console.log(resultadosFinais);
+        resultadosFinais.splice(removeAux, 1);
+        resultadosFinais.push(mf);
+        console.log(resultadosFinais);
             
         qMomentosFinal = qMomentosFinal - 1;
         indiceResultante = indiceResultados + 2;
     }
+
+    console.log(resultadosOrg);
 
     var qPosicoesFinais = resultadosOrg.length;
     var indicePosicoesFinais = 0;
@@ -510,6 +570,8 @@ async function CalculaTensaoMaxima() {
         
     var indiceMomentoFinal = 0;
     var indiceListaMomento = 0;
+    console.log(resultadosFinais);
+    console.log(listaEPosicaoMomentos);
     var qMFinal = resultadosFinais.length;
     var qLMomento = listaEPosicaoMomentos.length;
 
@@ -524,8 +586,8 @@ async function CalculaTensaoMaxima() {
             }
         }
             
-        indiceMomentoFinal = 0
-        indiceListaMomento = indiceListaMomento + 1
+        indiceMomentoFinal = 0;
+        indiceListaMomento = indiceListaMomento + 1;
     }
 
     /*for i in range(int(len(resultadosFinais))):
@@ -540,7 +602,8 @@ async function CalculaTensaoMaxima() {
         resultadosFinaisParaUsuario.push(tuplaFinal);
     }
         
-    //var resultadoMomentoUsuario = resultadosFinaisParaUsuario;
+    var resultadoMomentoUsuario = resultadosFinaisParaUsuario;
+    console.log(resultadoMomentoUsuario);
 
     //var str2 = 'os valores dos momentos e suas respectivas posições na barra são {0}';
     //print(str2.format(resultadoMomentoUsuario));
@@ -606,7 +669,7 @@ async function CalculaTensaoMaxima() {
     auxiliarPerifericos.appendChild(divAuxiliarPerifericos3);
     divAuxiliarPerifericos3.className="item";
     
-    await CriaElementoEmLoop("p", null, null, divAuxiliarPerifericos3, "Coloque o momento de inércia da estrutura (MPa):");
+    await CriaElementoEmLoop("p", null, null, divAuxiliarPerifericos3, "Coloque o momento de inércia da estrutura (mm⁴):");
 
     var iZ = await CriaElementoEmLoop("input", "momentoInerciaEstrutura", "text", divAuxiliarPerifericos3, null);
     var iZValue = iZ.value;
