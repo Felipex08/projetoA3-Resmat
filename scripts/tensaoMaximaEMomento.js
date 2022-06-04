@@ -10,10 +10,30 @@ async function CriaElementoEmLoop(tipoElemento, id, type, element, mensagem) {
         elementoCriado.setAttribute("id", id);
         elementoCriado.setAttribute("type", type);
         element.appendChild(elementoCriado);
+        /*console.log("Passei por aqui!")
+
+        var inputAux = document.getElementById(id);
+        console.log(inputAux);
+
+        inputAux.addEventListener("keypress", function(event) {
+            // If the user presses the "Enter" key on the keyboard
+            while(true) {
+                if (event.key === "Enter") {
+                    // Cancel the default action, if needed
+                    //event.preventDefault();
+                    // Trigger the button element with a click
+                    //document.getElementById("myBtn").click();
+                    console.log("Passei por aqui 2!");
+                    break;
+                }
+                console.log("Passei por aqui 3!");
+            }
+        });*/
 
         while (elementoCriado.value.length < 1) {
             const sleep = ms => new Promise(r => setTimeout(r, ms));
             await sleep(3000);
+            
             //console.log("passei por aqui");
         }
         console.log(elementoCriado.value);
@@ -26,6 +46,8 @@ async function CriaElementoEmLoop(tipoElemento, id, type, element, mensagem) {
     
     return elementoCriado;
 }
+
+var auxMomentos = [[]];
 
 async function CalculaTensaoMaxima() {
     //l = float(input('Comprimento da viga em mts '))
@@ -605,6 +627,9 @@ async function CalculaTensaoMaxima() {
     var resultadoMomentoUsuario = resultadosFinaisParaUsuario;
     console.log(resultadoMomentoUsuario);
 
+    auxMomentos = resultadoMomentoUsuario;
+    console.log(auxMomentos);
+
     //var str2 = 'os valores dos momentos e suas respectivas posições na barra são {0}';
     //print(str2.format(resultadoMomentoUsuario));
 
@@ -704,4 +729,11 @@ async function CalculaTensaoMaxima() {
     var tMax_21Resposta = tMax_21.toFixed(2).replace(".", ",");
 
     document.querySelector('#respostaTensaoMaximaFlexao').innerHTML = "Resultado: As tensões em Mz = " + mMaximoResposta + " são iguais a " + tMax_10Resposta + " MPa para a parte de cima do perfil e " + tMax_11Resposta + " MPa para a parte de baixo \nEm Mz = " + mMinimoResposta + " são iguais a " + tMax_20Resposta + " MPa para a parte de cima do perfil e " + tMax_21Resposta + " MPa para a parte de baixo";
+
+    return resultadoMomentoUsuario;
+}
+
+function ExibeMomento() {
+    console.log(auxMomentos);
+    document.querySelector('#respostaMomento').innerHTML = "Os valores dos momentos e suas respectivas posições na barra são: " + auxMomentos;
 }
