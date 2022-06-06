@@ -129,6 +129,7 @@ header > h1{
     align-items: center;
 
     margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
 }
 
 .transversal{
@@ -204,7 +205,7 @@ footer > p{
 }
 
 .principal__valor-tensao {
-    font-size: 1.10rem;
+    font-size: 1.30rem;
     font-style: bold;
     color: var(--corSuccess);
 }
