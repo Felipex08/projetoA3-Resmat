@@ -12,7 +12,9 @@ function CalculaDeformacao() {
 
     var respostaDeformacao = deformacao.toFixed(2).replace(".", ",");
 
-    document.querySelector("#respostaDeformacao").innerHTML = "Resultado: O valor da Deformação é: " + respostaDeformacao + " m.";
+    var respostaDeformacaoPorcentagem = respostaDeformacao * 100;
+
+    document.querySelector("#respostaDeformacao").innerHTML = "Resultado: O valor da Deformação é " + respostaDeformacao + ". Ou em porcentagem é " + respostaDeformacaoPorcentagem + " %.";
 }
 
 function ConverteVirgulaEmPonto(valor) {

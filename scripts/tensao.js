@@ -12,7 +12,7 @@ function CalculaTensaoNormal() {
 
     var respostaTensao = tensao.toFixed(2).replace(".", ",");
 
-    document.querySelector("#respostaTensao").innerHTML = "Resultado: O valor da Tensão é: " + respostaTensao + " MPa.";
+    document.querySelector("#respostaTensao").innerHTML = "Resultado: O valor da Tensão é " + respostaTensao + " MPa.";
 }
 
 function CalculaTensaoAdmissivel() {
@@ -29,7 +29,7 @@ function CalculaTensaoAdmissivel() {
 
     var respostaTensaoAdmissivel = tensaoAdmissivel.toFixed(2).replace(".", ",");
     
-    document.querySelector("#respostaTensaoAdmissivel").innerHTML = "Resultado: O valor da Tensão Admissível é: " + respostaTensaoAdmissivel + " MPa.";
+    document.querySelector("#respostaTensaoAdmissivel").innerHTML = "Resultado: O valor da Tensão Admissível é " + respostaTensaoAdmissivel + " MPa.";
 }
 
 function CalculaTensaoCisalhamento() {
@@ -49,7 +49,7 @@ function CalculaTensaoCisalhamento() {
 
     var respostaTensaoCisalhamento = tensaoCisalhamento.toFixed(2).replace(".", ",");
 
-    document.querySelector('#respostaTensaoCisalhamento').innerHTML = "Resultado: O valor da Tensão de Cisalhamento é: " + respostaTensaoCisalhamento + " MPa.";
+    document.querySelector('#respostaTensaoCisalhamento').innerHTML = "Resultado: O valor da Tensão de Cisalhamento é " + respostaTensaoCisalhamento + " MPa.";
 }
 
 function ConverteVirgulaEmPonto(valor) {
