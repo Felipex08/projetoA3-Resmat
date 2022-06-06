@@ -93,3 +93,7 @@ ul.lista2{
 ul.lista2 > li{
     margin-top: 5px;
 }
+
+#unique{
+    white-space: nowrap;
+}

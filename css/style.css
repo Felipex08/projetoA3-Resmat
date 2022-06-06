@@ -241,3 +241,13 @@ footer > p{
 .titulo-inputs {
     margin-top: 15px;
 }
+
+.inputItem {
+    margin: 5px 0;
+    height: 25px;
+    width: 200px;
+
+    padding: 5px;
+
+    font-size: 1rem;
+}

@@ -9,30 +9,12 @@ async function CriaElementoEmLoop(tipoElemento, id, type, element, mensagem) {
     if(tipoElemento == "input") {
         elementoCriado.setAttribute("id", id);
         elementoCriado.setAttribute("type", type);
+        elementoCriado.setAttribute("class", "inputItem");
         element.appendChild(elementoCriado);
-        /*console.log("Passei por aqui!")
-
-        var inputAux = document.getElementById(id);
-        console.log(inputAux);
-
-        inputAux.addEventListener("keypress", function(event) {
-            // If the user presses the "Enter" key on the keyboard
-            while(true) {
-                if (event.key === "Enter") {
-                    // Cancel the default action, if needed
-                    //event.preventDefault();
-                    // Trigger the button element with a click
-                    //document.getElementById("myBtn").click();
-                    console.log("Passei por aqui 2!");
-                    break;
-                }
-                console.log("Passei por aqui 3!");
-            }
-        });*/
 
         while (elementoCriado.value.length < 1) {
             const sleep = ms => new Promise(r => setTimeout(r, ms));
-            await sleep(3000);
+            await sleep(5000);
             
             //console.log("passei por aqui");
         }
@@ -393,7 +375,7 @@ async function CalculaTensaoMaxima() {
     var rayResposta = ray.toFixed(2).replace(".", ",");
     var rbyResposta = rby.toFixed(2).replace(".", ",");
 
-    document.querySelector("#reacoesDeApoio").innerHTML = "Resposta: O valor de reação do apoio A é: " + rayResposta + " kN e o valor de reação do apoio B é: " + rbyResposta + " kN"
+    document.querySelector("#reacoesDeApoio").innerHTML = "Resultado: O valor de reação do apoio A é: " + rayResposta + " kN e o valor de reação do apoio B é: " + rbyResposta + " kN."
 
     listaPReacoes.push(a1Valor);
     listaPReacoes.push(a2Valor);
@@ -728,12 +710,40 @@ async function CalculaTensaoMaxima() {
     var tMax_20Resposta = tMax_20.toFixed(2).replace(".", ",");
     var tMax_21Resposta = tMax_21.toFixed(2).replace(".", ",");
 
-    document.querySelector('#respostaTensaoMaximaFlexao').innerHTML = "Resultado: As tensões em Mz = " + mMaximoResposta + " são iguais a " + tMax_10Resposta + " MPa para a parte de cima do perfil e " + tMax_11Resposta + " MPa para a parte de baixo \nEm Mz = " + mMinimoResposta + " são iguais a " + tMax_20Resposta + " MPa para a parte de cima do perfil e " + tMax_21Resposta + " MPa para a parte de baixo";
+    document.querySelector('#respostaTensaoMaximaFlexao').innerHTML = "<br>As tensões em Mz = " + mMaximoResposta + " são iguais a " + tMax_10Resposta + " MPa para a parte de cima do perfil e " + tMax_11Resposta + " MPa para a parte de baixo. <br>Em Mz = " + mMinimoResposta + " são iguais a " + tMax_20Resposta + " MPa para a parte de cima do perfil e " + tMax_21Resposta + " MPa para a parte de baixo.";
 
     return resultadoMomentoUsuario;
 }
 
 function ExibeMomento() {
     console.log(auxMomentos);
-    document.querySelector('#respostaMomento').innerHTML = "Os valores dos momentos e suas respectivas posições na barra são: " + auxMomentos;
+
+    var listaAuxMomentos = [];
+    var respostaMomento = document.querySelector('#respostaMomento');
+
+    for(var i = 0; i < auxMomentos.length; i++) {
+        for(var j = 0; j < auxMomentos[i].length; j++) {
+            listaAuxMomentos.push(auxMomentos[i][j]);
+        }
+    }
+
+    console.log(listaAuxMomentos);
+
+    for(var i = 0; i < listaAuxMomentos.length; i = i + 2) {
+        var divAuxiliarRespostamomento = document.createElement("div");
+        respostaMomento.appendChild(divAuxiliarRespostamomento);
+        divAuxiliarRespostamomento.className="item";
+
+        var posicaoMomento = listaAuxMomentos[i + 1];
+        console.log(posicaoMomento);
+        var posicaoMomentoString = posicaoMomento.toString();
+        console.log(posicaoMomentoString);
+
+        var valorMomento = listaAuxMomentos[i];
+        console.log(valorMomento);
+        var valorMomentoString = valorMomento.toFixed(2).toString();
+        console.log(valorMomentoString);
+
+        divAuxiliarRespostamomento.innerHTML = "Na posição " + posicaoMomentoString.replace(".", ",") + " o valor do momento é: " + valorMomentoString.replace(".", ",") + " kNm.";
+    }
 }
